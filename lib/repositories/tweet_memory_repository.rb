@@ -4,7 +4,3 @@
 class TweetMemoryRepository < Backer::Memory::Base
   model_class Tweet
 end
-
-class EventMemoryRepository < Backer::Memory::Base
-  model_class Event
-end
