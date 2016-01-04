@@ -6,6 +6,9 @@ require 'backer/memory'
 
 require_relative './lib/loader.rb'
 
+require 'logger'
+logger = Logger.new(STDOUT)
+
 configure do
   Backer::Repo.register(:tweet, TweetMemoryRepository.new)
   Backer::Repo.register(:event, EventMemoryRepository.new)
@@ -27,11 +30,13 @@ get '/' do
       # check for the event name
       case event.name
       when "CreatedEvent"
+        logger.info("Processing `CreatedEvent`")
         # create a new model
         @tweet = settings.tweets.new
         @tweet.content = event.attributes[:content]
         settings.tweets.save(@tweet)
       when "DeletedEvent"
+        logger.info("Processing `DeletedEvent`")
         # change the attributes of the model
         @tweet = settings.tweets.find_by_id(event.attributes[:id])
         @tweet.deleted = true
