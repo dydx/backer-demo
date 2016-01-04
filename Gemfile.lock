@@ -1,0 +1,41 @@
+GIT
+  remote: git://github.com/dydx/backer-memory.git
+  revision: 976b478cbfc04c605cd8a194cb252734a4bd1d6e
+  specs:
+    backer-memory (0.1.0)
+
+GIT
+  remote: git://github.com/dydx/backer.git
+  revision: cc713b66639bc588681ead19d550a571f0fbea4e
+  specs:
+    backer (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    daemons (1.2.3)
+    eventmachine (1.0.8)
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    thin (1.6.4)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (~> 1.0)
+    tilt (2.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  backer!
+  backer-memory!
+  sinatra
+  thin
+
+BUNDLED WITH
+   1.11.2

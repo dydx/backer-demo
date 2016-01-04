@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Tweeter</h1>
+  <form id="tweet" action="/new" method="post">
+    <input type="text" name="content">
+    <input type="submit" value="Share">
+  </form>
+  <div id="tweets"> 
+    <ul>
+    <% if @tweets.length > 0 %>
+      <% @tweets.each do |tweet| %>
+        <% unless tweet.deleted %>
+        <li><%= tweet.content %> - (<a href="/delete/<%= tweet.id %>">Delete</a>)</li>
+        <% end %>
+      <% end %>
+    <% else %>
+      <li>No Tweets Yet!</li>
+    <% end %>
+    </ul>
+  </div>
+</body>
+</html>
